@@ -22,9 +22,9 @@ class Harfbuzz < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gmerlino/cairo/cairo" => "with-x11"
   depends_on "freetype"
   depends_on "glib"
+  depends_on "gmerlino/cairo/cairo" => "with-x11"
   depends_on "graphite2"
   depends_on "icu4c"
 
