@@ -15,10 +15,10 @@ class Harfbuzz < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "cairo" => "with-x11"
-  depends_on "gobject-introspection"
   depends_on "freetype"
   depends_on "glib"
+  depends_on "gmerlino/cairo/cairo" => "with-x11"
+  depends_on "gobject-introspection"
   depends_on "graphite2"
   depends_on "icu4c"
 
@@ -48,6 +48,7 @@ class Harfbuzz < Formula
   end
 
   test do
+    cairo = Formula["gmerlino/cairo/cairo"]
     resource("ttf").stage do
       shape = `echo 'സ്റ്റ്' | #{bin}/hb-shape 270b89df543a7e48e206a2d830c0e10e5265c630.ttf`.chomp
       assert_equal "[glyph201=0+1183|U0D4D=0+0]", shape
